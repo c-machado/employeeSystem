@@ -16,6 +16,14 @@ public class LoginMaster implements Serializable {
     @Column(name="ROLE",length=20,nullable=false)
     private String role;
 
+    public LoginMaster(){}
+
+    public LoginMaster(Employees userId, String password, String role) {
+        this.userId = userId;
+        this.password = password;
+        this.role = role;
+    }
+
     public Employees getUserId() {
         return userId;
     }
@@ -37,14 +45,6 @@ public class LoginMaster implements Serializable {
     }
 
     public void setRole(String role) {
-        this.role = role;
-    }
-
-    public LoginMaster(){}
-
-    public LoginMaster(Employees userId, String password, String role) {
-        this.userId = userId;
-        this.password = password;
         this.role = role;
     }
 

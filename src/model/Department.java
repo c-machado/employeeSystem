@@ -11,12 +11,11 @@ public class Department implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="DEPARTMENT_ID",length=10,nullable=false)
     private int departmentId;
-    @Column(name="DEPARTMENT_NM",length=10,nullable=false)
+    @Column(name="DEPARTMENT_NM",length=25,nullable=false)
     private String departmentName;
 
 
-    public Department(int departmentId, String departmentName) {
-        this.departmentId = departmentId;
+    public Department(String departmentName) {
         this.departmentName = departmentName;
     }
 

@@ -24,7 +24,7 @@
 
     <!-- Drop and re-create the database schema on startup -->
     <!-- create-drop ,  create , update  -->
-    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.auto">update</property>
     <mapping class="model.Employees"/>
     <mapping class="model.LoginMaster"/>
     <mapping class="model.Department"/>

@@ -29,9 +29,8 @@ public class Employees implements Serializable {
 
     }
 
-    public Employees(int empId, String firstName, String lastName, Date dob, String email, Department department) {
+    public Employees( String firstName, String lastName, Date dob, String email, Department department) {
         super();
-        this.empId = empId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
