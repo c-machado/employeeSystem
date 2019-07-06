@@ -13,6 +13,14 @@
     <servlet-name>ServletEmployees</servlet-name>
     <url-pattern>/ServletEmployees</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletDepartment</servlet-name>
+    <servlet-class>ServletDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDepartment</servlet-name>
+    <url-pattern>/ServletDepartment</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 

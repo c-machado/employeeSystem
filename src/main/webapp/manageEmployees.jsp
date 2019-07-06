@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Employee Management</title>
+    <title>Employee Management System</title>
 </head>
 <body>
 <center>
@@ -13,7 +13,7 @@
         &nbsp;&nbsp;&nbsp;
         <a href="/ServletEmployees?action=list">List All Employees</a>
 
-        <a href="/ServletEmployees?action=list">List All Employees</a>
+        <a href="/ServletDepartment?action=list">Manage Departments</a>
 
     </h2>
 </center>
@@ -26,7 +26,7 @@
             <th>LastName</th>
             <th>DOB</th>
             <th>Email</th>
-           <th>Department</th>
+            <th>Department</th>
         </tr>
         <c:forEach var="Employee" items="${listEmployee}">
             <tr>
