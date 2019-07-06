@@ -26,5 +26,9 @@
     <!-- create-drop ,  create , update  -->
     <property name="hbm2ddl.auto">create</property>
     <mapping class="model.Employees"/>
+    <mapping class="model.LoginMaster"/>
+    <mapping class="model.Department"/>
+    <mapping class="model.Compliance"/>
+    <mapping class="model.StatusReport"/>
   </session-factory>
 </hibernate-configuration>

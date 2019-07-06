@@ -1,31 +1,42 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table
-public class Employees {
+public class Employees implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="EMPID",length=10,nullable=false)
     private int empId;
+    @Column(name="FIRSTNAME",length=45,nullable=false)
     private String firstName;
+    @Column(name="LASTNAME",length=45,nullable=false)
     private String lastName;
+    @Column(name="DOB",nullable=false)
     private Date dob;
-    private int departmentId;
+    @Column(name="EMAIL",length=100,nullable=false)
+    private String email;
+    @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID")
+    private Department department;
+
 
     public Employees(){
 
     }
 
-    public Employees(int empId, String firstName, String lastName, Date dob, int departmentId) {
+    public Employees(int empId, String firstName, String lastName, Date dob, String email, Department department) {
         super();
         this.empId = empId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
-        this.departmentId = departmentId;
+        this.email = email;
+        this.department = department;
     }
 
     public int getEmpId() {
@@ -60,12 +71,20 @@ public class Employees {
         this.dob = dob;
     }
 
-    public int getDepartmentId() {
-        return departmentId;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -75,7 +94,9 @@ public class Employees {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dob=" + dob +
-                ", departmentId=" + departmentId +
+                ", email='" + email + '\'' +
+                ", departmentId=" + department.toString() +
                 '}';
     }
 }
+
