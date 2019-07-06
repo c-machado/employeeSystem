@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "/" )
+@WebServlet(name = "/"/*,urlPatterns = {"/Employees"}*/ )
 public class ServletEmployees extends HttpServlet {
 
     //private static final long serialVersionUID = 1 L;
@@ -37,7 +37,7 @@ public class ServletEmployees extends HttpServlet {
 
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          String action = request.getServletPath();
-
+            System.out.println("doGet");
          try {
              switch (action) {
                  case "/new":
@@ -56,6 +56,7 @@ public class ServletEmployees extends HttpServlet {
                      updateEmployee(request, response);
                      break;
                  default:
+                     System.out.println("default");
                      listEmployee(request, response);
                      break;
              }
@@ -68,7 +69,9 @@ public class ServletEmployees extends HttpServlet {
              throws SQLException, IOException, ServletException {
          List< Employees > listEmployee = employeeDAO.getAllEmployees();
          request.setAttribute("listEmployee", listEmployee);
-         RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
+         System.out.println("ListEmployee "+listEmployee);
+
+         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
          dispatcher.forward(request, response);
      }
 
