@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "/"/*,urlPatterns = {"/Employees"}*/ )
+@WebServlet(name = "/ServletEmployees"/*,urlPatterns = {"/Employees"}*/ )
 public class ServletEmployees extends HttpServlet {
 
     //private static final long serialVersionUID = 1 L;
@@ -36,8 +36,8 @@ public class ServletEmployees extends HttpServlet {
      }
 
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         String action = request.getServletPath();
-            System.out.println("doGet");
+         String action = request.getParameter("action");
+            System.out.println("doGet "+action);
          try {
              switch (action) {
                  case "/new":
