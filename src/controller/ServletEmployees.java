@@ -22,7 +22,7 @@ public class ServletEmployees extends HttpServlet {
 
     //private static final long serialVersionUID = 1 L;
 
-   private EmployeeDAO employeeDAO;
+    private EmployeeDAO employeeDAO;
     private DepartmentDAO departmentDAO;
 
     public void init() {
@@ -37,7 +37,6 @@ public class ServletEmployees extends HttpServlet {
 
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          String action = request.getParameter("action");
-            System.out.println("doGet "+action);
          try {
              switch (action) {
                  case "/new":
@@ -56,7 +55,6 @@ public class ServletEmployees extends HttpServlet {
                      updateEmployee(request, response);
                      break;
                  default:
-                     System.out.println("default");
                      listEmployee(request, response);
                      break;
              }
@@ -69,9 +67,7 @@ public class ServletEmployees extends HttpServlet {
              throws SQLException, IOException, ServletException {
          List< Employees > listEmployee = employeeDAO.getAllEmployees();
          request.setAttribute("listEmployee", listEmployee);
-         System.out.println("ListEmployee "+listEmployee);
-
-         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+         RequestDispatcher dispatcher = request.getRequestDispatcher("manageEmployees.jsp");
          dispatcher.forward(request, response);
      }
 
@@ -100,7 +96,7 @@ public class ServletEmployees extends HttpServlet {
          int deptid = Integer.parseInt(request.getParameter("id"));
          Employees newEmployee = new Employees(name, lastName, dob, email, departmentDAO.getDepartmentById(deptid));
          employeeDAO.addEmployee(newEmployee);
-         response.sendRedirect("list");
+         response.sendRedirect("/ServletDepartment?action=list");
      }
 
      private void updateEmployee(HttpServletRequest request, HttpServletResponse response)
@@ -112,13 +108,13 @@ public class ServletEmployees extends HttpServlet {
          int deptid = Integer.parseInt(request.getParameter("id"));
          Employees newEmployee = new Employees(name, lastName, dob, email, departmentDAO.getDepartmentById(deptid));
          employeeDAO.updateEmployee(newEmployee);
-         response.sendRedirect("list");
+         response.sendRedirect("/ServletDepartment?action=list");
      }
 
      private void deleteEmployee(HttpServletRequest request, HttpServletResponse response)
              throws SQLException, IOException {
          int id = Integer.parseInt(request.getParameter("id"));
          employeeDAO.deleteEmployee(id);
-         response.sendRedirect("list");
+         response.sendRedirect("/ServletDepartment?action=list");
      }
 }
