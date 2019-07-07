@@ -22,7 +22,7 @@ public class Main {
     public static void main (String args []){
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        List<Employees> emps = employeeDAO.getAllEmployees();
+       /* List<Employees> emps = employeeDAO.getAllEmployees();
         for(Employees e: emps){
             System.out.println(e);
         }
@@ -32,12 +32,15 @@ public class Main {
         for(Department d: depts){
             System.out.println(d);
         }
-        Department dp = departmentDAO.getDepartmentById(1);
+        Department dp = departmentDAO.getDepartmentById(1);*/
 
         //Compliance compliance = new Compliance("type1", "details1", new Date(),dp);
-        ComplianceDAO complianceDAO = new ComplianceDAO();
-        complianceDAO.deleteCompliance(2);
+        //ComplianceDAO complianceDAO = new ComplianceDAO();
+        //complianceDAO.deleteCompliance(2);
 
+        Employees emp = employeeDAO.getUserById(2);
+        emp.setEmail("carolin@gmail.com");
+        employeeDAO.updateEmployee(emp);
 
         /*StandardServiceRegistry standardRegistry = new
                 StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();

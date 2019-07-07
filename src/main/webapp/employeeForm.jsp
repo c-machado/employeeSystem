@@ -3,9 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <script type="text/javascript">
+        window.onload=function() {
+            document.getElementById("selectDept").value = document.getElementById("depId").value;
+        }
+        function selectDeptChange() {
+            document.getElementById("depId").value = document.getElementById("selectDept").value;
+        }
+    </script>
     <title>Employee Management System</title>
 </head>
-<body>
+<body >
 <center>
     <h1>Employee Management</h1>
     <h2>
@@ -39,7 +47,7 @@
                 <tr>
                     <th>First Name: </th>
                     <td>
-                        <input type="text" name="name" size="45"
+                        <input type="text" name="firstName" size="45"
                                value="<c:out value='${Employee.getFirstName()}' />"
                         />
                     </td>
@@ -47,7 +55,7 @@
                 <tr>
                     <th>Last Name: </th>
                     <td>
-                        <input type="text" name="name" size="45"
+                        <input type="text" name="lastName" size="45"
                                value="<c:out value='${Employee.getLastName()}' />"
                         />
                     </td>
@@ -55,7 +63,7 @@
                 <tr>
                     <th>Date Of Birthday: </th>
                     <td>
-                        <input type="text" name="name" size="45"
+                        <input type="text" name="dob" size="45"
                                value="<c:out value='${Employee.getDob()}' />"
                         />
                     </td>
@@ -63,7 +71,7 @@
                 <tr>
                     <th>Email: </th>
                     <td>
-                        <input type="text" name="name" size="45"
+                        <input type="text" name="email" size="45"
                                value="<c:out value='${Employee.getEmail()}' />"
                         />
                     </td>
@@ -71,9 +79,12 @@
                 <tr>
                     <th>Department: </th>
                     <td>
-                        <input type="text" name="name" size="45"
-                               value="<c:out value='${Employee.department.departmentName}' />"
-                        />
+                        <select id = "selectDept" onchange="selectDeptChange()">
+                            <c:forEach items="${deptList}" var="dept">
+                                <option value="${dept.getDepartmentid()}">${dept.getDepartmentName()}</option>
+                            </c:forEach>
+                        </select>
+                        <input id = "depId" name = "depId" type="hidden" value="<c:out value='${Employee.department.getDepartmentid()}' />" />
                     </td>
                 </tr>
                 <tr>

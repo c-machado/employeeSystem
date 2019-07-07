@@ -21,7 +21,7 @@ public class Employees implements Serializable {
     @Column(name="EMAIL",length=100,nullable=false)
     private String email;
     @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID")
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID", nullable = false)
     private Department department;
 
 
