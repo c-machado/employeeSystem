@@ -36,7 +36,7 @@ public class ServletDepartment extends HttpServlet {
                 case "new":
                     showNewForm(request, response);
                     break;
-                case "ServletDepartment?action=insert":
+                case "insert":
                     insertDepartment(request, response);
                     break;
                 case "delete":
@@ -87,7 +87,6 @@ public class ServletDepartment extends HttpServlet {
         String name = request.getParameter("name");
         Department department = new Department(name);
         departmentDAO.saveDepartment(department);
-        System.out.println("Department name en insert " + name);
         response.sendRedirect("/ServletDepartment?action=list");
     }
 
