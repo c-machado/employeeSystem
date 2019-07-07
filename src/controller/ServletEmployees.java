@@ -48,10 +48,10 @@ public class ServletEmployees extends HttpServlet {
                  case "/delete":
                      deleteEmployee(request, response);
                      break;
-                 case "/edit":
+                 case "edit":
                      showEditForm(request, response);
                      break;
-                 case "/update":
+                 case "update":
                      updateEmployee(request, response);
                      break;
                  default:
@@ -67,13 +67,15 @@ public class ServletEmployees extends HttpServlet {
              throws SQLException, IOException, ServletException {
          List< Employees > listEmployee = employeeDAO.getAllEmployees();
          request.setAttribute("listEmployee", listEmployee);
+
+
          RequestDispatcher dispatcher = request.getRequestDispatcher("manageEmployees.jsp");
          dispatcher.forward(request, response);
      }
 
      private void showNewForm(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
-         RequestDispatcher dispatcher = request.getRequestDispatcher("Employee-form.jsp");
+         RequestDispatcher dispatcher = request.getRequestDispatcher("employeeForm.jsp");
          dispatcher.forward(request, response);
      }
 
@@ -81,7 +83,7 @@ public class ServletEmployees extends HttpServlet {
              throws SQLException, ServletException, IOException {
          int id = Integer.parseInt(request.getParameter("id"));
          Employees existingEmployee = employeeDAO.getUserById(id);
-         RequestDispatcher dispatcher = request.getRequestDispatcher("Employee-form.jsp");
+         RequestDispatcher dispatcher = request.getRequestDispatcher("employeeForm.jsp");
          request.setAttribute("Employee", existingEmployee);
          dispatcher.forward(request, response);
 
@@ -101,6 +103,7 @@ public class ServletEmployees extends HttpServlet {
 
      private void updateEmployee(HttpServletRequest request, HttpServletResponse response)
              throws SQLException, IOException, ParseException {
+         int id = Integer.parseInt(request.getParameter("id"));
          String name = request.getParameter("name");
          String lastName = request.getParameter("lastName");
          Date dob = new SimpleDateFormat("dd/MM/yyyy").parse("dob");

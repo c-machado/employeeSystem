@@ -36,11 +36,11 @@
                 <td><c:out value="${Employee.getDob()}"/></td>
                 <td><c:out value="${Employee.getEmail()}"/></td>
                 <td><c:out value="${Employee.department.departmentName}" /></td>
-                    <%--   <td>
-                    <a href="edit?id=<c:out value='${Employee.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${Employee.id}' />">Delete</a>--%>
-         </td>
+                <td>
+                    <a href="/ServletEmployees?action=edit&id=<c:out value='${Employee.getEmpId()}' />">Edit</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <%--<a href="delete?id=<c:out value='${Employee.id}' />">Delete</a>--%>
+                </td>
      </tr>
  </c:forEach>
 </table>
