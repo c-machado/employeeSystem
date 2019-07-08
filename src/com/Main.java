@@ -3,9 +3,11 @@ package com;
 import DAO.ComplianceDAO;
 import DAO.DepartmentDAO;
 import DAO.EmployeeDAO;
+import DAO.UserDAO;
 import model.Compliance;
 import model.Department;
 import model.Employees;
+import model.LoginMaster;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -38,10 +40,14 @@ public class Main {
         //ComplianceDAO complianceDAO = new ComplianceDAO();
         //complianceDAO.deleteCompliance(2);
 
-        Employees emp = employeeDAO.getUserById(2);
+        /*Employees emp = employeeDAO.getUserById(2);
         emp.setEmail("carolin@gmail.com");
-        employeeDAO.updateEmployee(emp);
+        employeeDAO.updateEmployee(emp);*/
 
+        int userId = 3;
+        UserDAO user = new UserDAO();
+        user.getUserByUserId(userId);
+        System.out.println(user.getUserByUserId(userId));
         /*StandardServiceRegistry standardRegistry = new
                 StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
         Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();

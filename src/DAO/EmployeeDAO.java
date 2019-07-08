@@ -80,7 +80,6 @@ public class EmployeeDAO {
         }
         return employees;
     }
-    @SuppressWarnings("unchecked")
     public Employees getUserById(int empid) {
         Employees employee = null;
         Transaction trns = null;
