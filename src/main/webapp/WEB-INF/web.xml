@@ -29,6 +29,14 @@
     <servlet-name>ServletRegulations</servlet-name>
     <url-pattern>/ServletRegulations</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletStatusReport</servlet-name>
+    <servlet-class>ServletStatusReport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletStatusReport</servlet-name>
+    <url-pattern>/ServletStatusReport</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 

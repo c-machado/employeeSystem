@@ -11,7 +11,11 @@
     <h2>
         <a href="/ServletRegulations?action=new">Add New Regulation</a>
         &nbsp;&nbsp;
+        <a href="/ServletStatusReport?action=new">Assign Regulation</a>
+        &nbsp;
         <a href="/ServletRegulations?action=list">List All Regulations</a>
+        &nbsp;
+        <a href="/ServletStatusReport?action=list">List Assigned Regulations</a>
         &nbsp;
         <a href="/ServletDepartment?action=list">Manage Departments</a>
 
@@ -19,7 +23,7 @@
 </center>
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2>List of Employees</h2></caption>
+        <caption><h2>List of Regulations</h2></caption>
         <tr>
             <th>ID</th>
             <th>Regulation Type</th>

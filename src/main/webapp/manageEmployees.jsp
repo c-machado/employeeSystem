@@ -14,6 +14,8 @@
         <a href="/ServletEmployees?action=list">List All Employees</a>
         &nbsp;
         <a href="/ServletDepartment?action=list">Manage Departments</a>
+        &nbsp;
+        <a href="/ServletRegulations?action=list">Manage Regulations</a>
 
     </h2>
 </center>
