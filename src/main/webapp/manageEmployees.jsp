@@ -27,6 +27,7 @@
             <th>DOB</th>
             <th>Email</th>
             <th>Department</th>
+            <th>Actions</th>
         </tr>
         <c:forEach var="Employee" items="${listEmployee}">
             <tr>
@@ -39,7 +40,7 @@
                 <td>
                     <a href="/ServletEmployees?action=edit&id=<c:out value='${Employee.getEmpId()}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                    <%--<a href="delete?id=<c:out value='${Employee.id}' />">Delete</a>--%>
+                    <a href="/ServletEmployees?action=delete&id=<c:out value='${Employee.getEmpId()}' />">Delete</a>
                 </td>
      </tr>
  </c:forEach>

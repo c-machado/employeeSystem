@@ -77,7 +77,9 @@ public class ServletEmployees extends HttpServlet {
 
      private void showNewForm(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
+         List<Department> deptList = departmentDAO.getAllDepartments();
          RequestDispatcher dispatcher = request.getRequestDispatcher("employeeForm.jsp");
+         request.setAttribute("deptList", deptList);
          dispatcher.forward(request, response);
      }
 
@@ -98,7 +100,6 @@ public class ServletEmployees extends HttpServlet {
          String name = request.getParameter("firstName");
          String lastName = request.getParameter("lastName");
          Date dob = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dob").substring(0,10));
-                 //SimpleDateFormat("dd/MM/yyyy").parse("dob");
          String email = request.getParameter("email");
          int deptId = Integer.parseInt(request.getParameter("depId"));
          Employees newEmployee = new Employees(name, lastName, dob, email, departmentDAO.getDepartmentById(deptId));
