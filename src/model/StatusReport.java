@@ -7,10 +7,11 @@ import java.util.Date;
 @Entity
 @Table
 public class StatusReport implements Serializable {
-
     @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name = "COMPLIANCE_ID", referencedColumnName = "COMPLIANCE_ID")
     private Compliance compliance;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="STATUSRPTID",length=10,nullable=false)
     private int statusRptId;
     @Id
@@ -28,9 +29,9 @@ public class StatusReport implements Serializable {
 
     public StatusReport(){}
 
-    public StatusReport(Compliance compliance, int statusRptId, Employees empId, String comments, Date createDate, Department department) {
+    public StatusReport(Compliance compliance, /*int statusRptId,*/ Employees empId, String comments, Date createDate, Department department) {
         this.compliance = compliance;
-        this.statusRptId = statusRptId;
+        //this.statusRptId = statusRptId;
         this.empId = empId;
         this.comments = comments;
         this.createDate = createDate;
