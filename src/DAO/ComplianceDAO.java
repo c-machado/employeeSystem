@@ -2,6 +2,7 @@ package DAO;
 
 
 import model.Compliance;
+import model.Department;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -80,7 +81,7 @@ public class ComplianceDAO {
         }
         return compliances;
     }
-    @SuppressWarnings("unchecked")
+
     public Compliance getComplianceById(int complianceId) {
         Compliance compliance = null;
         Transaction trns = null;
@@ -99,7 +100,22 @@ public class ComplianceDAO {
         }
         return compliance;
     }
-
+    public void saveCompliance(Compliance compliance) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // save the student object
+            session.save(compliance);
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
     public ComplianceDAO() {
         // TODO Auto-generated constructor stub
     }

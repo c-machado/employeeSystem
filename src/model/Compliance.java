@@ -11,11 +11,11 @@ public class Compliance implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="COMPLIANCE_ID",length=10,nullable=false)
     private int complianceId;
-    @Column(name="RLTYPE",length=10,nullable=false)
+    @Column(name="RLTYPE",length=15,nullable=false)
     private String rlType;
-    @Column(name="DETAILS",length=10,nullable=false)
+    @Column(name="DETAILS",length=250,nullable=false)
     private String details;
-    @Column(name="CREATEDATE",length=10,nullable=false)
+    @Column(name="CREATEDATE",nullable=false)
     private Date createDate;
 
     @ManyToOne
