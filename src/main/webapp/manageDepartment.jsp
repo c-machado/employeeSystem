@@ -10,10 +10,12 @@
     <h1>Department Management</h1>
     <h2>
         <a href="/ServletDepartment?action=new">Add New Department</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;      &nbsp;
         <a href="/ServletDepartment?action=list">List All Departments</a>
-           &nbsp;
+       &nbsp;&nbsp;
         <a href="/ServletEmployees?action=list">Manage Employees</a>
+        &nbsp;
+        <a href="/ServletRegulations?action=list">Manage Regulations</a>
     </h2>
 </center>
 <div align="center">
@@ -22,19 +24,17 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Actions</th>
-
         </tr>
         <c:forEach var="Department" items="${listDepartment}">
             <tr>
                 <td><c:out value="${Department.getDepartmentid()}" /></td>
                 <td><c:out value="${Department.getDepartmentName()}" /></td>
-                   <td>
-                        <a href="/ServletDepartment?action=edit&id=<c:out value='${Department.getDepartmentid()}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <%-- <td>
+                          <a href="/ServletDepartment?action=edit&id=<c:out value='${Department.getDepartmentid()}' />">Edit</a>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <a href="/ServletDepartment?action=delete&id=<c:out value='${Department.getDepartmentid()}' />">Delete</a>
-                   </td>
+                          <a href="/ServletDepartment?action=delete&id=<c:out value='${Department.getDepartmentid()}' />">Delete</a>
+                   </td>--%>
             </tr>
  </c:forEach>
 </table>

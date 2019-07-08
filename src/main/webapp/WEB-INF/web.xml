@@ -21,6 +21,14 @@
     <servlet-name>ServletDepartment</servlet-name>
     <url-pattern>/ServletDepartment</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletRegulations</servlet-name>
+    <servlet-class>ServletRegulations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRegulations</servlet-name>
+    <url-pattern>/ServletRegulations</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 

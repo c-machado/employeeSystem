@@ -10,9 +10,9 @@
     <h1>Employee Management</h1>
     <h2>
         <a href="/ServletEmployees?action=new">Add New Employee</a>
-        &nbsp;&nbsp;&nbsp;
+        &nbsp;
         <a href="/ServletEmployees?action=list">List All Employees</a>
-
+        &nbsp;
         <a href="/ServletDepartment?action=list">Manage Departments</a>
 
     </h2>
