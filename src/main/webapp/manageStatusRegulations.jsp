@@ -23,6 +23,7 @@
             <th>Comments</th>
             <th>Creation Date</th>
             <th>Department</th>
+            <th>Actions</th>
 
         </tr>
         <c:forEach var="Regulation" items="${listRegulations}">
@@ -33,6 +34,7 @@
                 <td><c:out value="${Regulation.getComments()}" /></td>
                 <td><c:out value="${Regulation.getCreateDate()}"/></td>
                 <td><c:out value="${Regulation.department.departmentName}" /></td>
+                <td><a href="/ServletStatusReport?action=edit&id=<c:out value='${Regulation.empId.getEmpId()}' />">Edit</a></td>
             </tr>
         </c:forEach>
 </table>
